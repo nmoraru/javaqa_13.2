@@ -1,0 +1,43 @@
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+        at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:787) ~[spring-boot-2.2.5.RELEASE.jar!/:2.2.5.RELEASE]
+        at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768) ~[spring-boot-2.2.5.RELEASE.jar!/:2.2.5.RELEASE]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) ~[spring-boot-2.2.5.RELEASE.jar!/:2.2.5.RELEASE]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) ~[spring-boot-2.2.5.RELEASE.jar!/:2.2.5.RELEASE]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) ~[spring-boot-2.2.5.RELEASE.jar!/:2.2.5.RELEASE]
+        at ru.netology.stacktrace.StacktraceApplication.main(StacktraceApplication.java:13) ~[classes!/:0.0.1-SNAPSHOT]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+        at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) ~[stacktrace.jar:0.0.1-SNAPSHOT]
+        at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) ~[stacktrace.jar:0.0.1-SNAPSHOT]
+        at org.springframework.boot.loader.Launcher.launch(Launcher.java:51) ~[stacktrace.jar:0.0.1-SNAPSHOT]
+        at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:52) ~[stacktrace.jar:0.0.1-SNAPSHOT]
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'app'@'localhost' (using password: YES)
+        at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:82) ~[spring-jdbc-5.2.4.RELEASE.jar!/:5.2.4.RELEASE]
+        at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:371) ~[spring-jdbc-5.2.4.RELEASE.jar!/:5.2.4.RELEASE]
+        at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:418) ~[spring-jdbc-5.2.4.RELEASE.jar!/:5.2.4.RELEASE]
+        at ru.netology.stacktrace.StacktraceApplication.lambda$runner$0(StacktraceApplication.java:19) ~[classes!/:0.0.1-SNAPSHOT]
+        at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784) ~[spring-boot-2.2.5.RELEASE.jar!/:2.2.5.RELEASE]
+        ... 13 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'app'@'localhost' (using password: YES)
+        at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.19.jar!/:8.0.19]
+        at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.19.jar!/:8.0.19]
+        at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.19.jar!/:8.0.19]
+        at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836) ~[mysql-connector-java-8.0.19.jar!/:8.0.19]
+        at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456) ~[mysql-connector-java-8.0.19.jar!/:8.0.19]
+        at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246) ~[mysql-connector-java-8.0.19.jar!/:8.0.19]
+        at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197) ~[mysql-connector-java-8.0.19.jar!/:8.0.19]
+        at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-3.4.2.jar!/:na]
+        at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:354) ~[HikariCP-3.4.2.jar!/:na]
+        at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-3.4.2.jar!/:na]
+        at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:473) ~[HikariCP-3.4.2.jar!/:na]
+        at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:554) ~[HikariCP-3.4.2.jar!/:na]
+        at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-3.4.2.jar!/:na]
+        at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-3.4.2.jar!/:na]
+        at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158) ~[spring-jdbc-5.2.4.RELEASE.jar!/:5.2.4.RELEASE]
+        at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116) ~[spring-jdbc-5.2.4.RELEASE.jar!/:5.2.4.RELEASE]
+        at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79) ~[spring-jdbc-5.2.4.RELEASE.jar!/:5.2.4.RELEASE]
+        ... 17 common frames omitted
+
+2020-06-12 23:58:54.146  INFO 4928 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
